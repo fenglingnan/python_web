@@ -58,3 +58,5 @@ inp=int(input('请输入页码'))
 res=user_list[(inp-1)*10:inp*10]
 for item in res:
     print(item)
+tpl="i am %(name)s age %(age)d" % {'name':'alex','age':18}
+print(tpl)
