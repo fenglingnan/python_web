@@ -28,3 +28,33 @@ print(d)
 list1=['alex','alex','yqy']
 list1=list(set(list1))#去重(不考虑顺序)
 print(list1)
+"""
+    99乘法表
+"""
+for i in range(1,10):
+    for v in range(1,i+1):
+        print('%s * %s = %s\t'%(i,v,i*v),end='')
+    print('\t')
+"""
+    公鸡5文钱1只，母鸡3文钱1只，小鸡3只一文钱，100文钱买100只鸡，公鸡母鸡小鸡都要有，各多少只？
+"""
+for x in range(1,100//5):
+    for y in range(1,100//3):
+        for z in range(1,100):
+            if (x+y+z==100) and (x*5+y*3+z/3==100):
+                print(x,y,z)
+li=('alex','eric',123)
+print(id(li))
+print(id(tuple(map(lambda x1:str(x1),li))))
+user_list=[]
+for i in range(1,31):
+    user_list.append({
+        'name':'alex'+str(i),
+        'email':'alex@live.com'+str(i),
+        'pwd':'pwd'+str(i)
+    })
+print(user_list)
+inp=int(input('请输入页码'))
+res=user_list[(inp-1)*10:inp*10]
+for item in res:
+    print(item)
