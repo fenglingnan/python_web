@@ -54,9 +54,22 @@ for i in range(1,31):
         'pwd':'pwd'+str(i)
     })
 print(user_list)
-inp=int(input('请输入页码'))
-res=user_list[(inp-1)*10:inp*10]
-for item in res:
-    print(item)
+# inp=int(input('请输入页码'))
+# res=user_list[(inp-1)*10:inp*10]
+# for item in res:
+#     print(item)
 tpl="i am %(name)s age %(age)d" % {'name':'alex','age':18}
 print(tpl)
+#位置参数必须在关键字参数左边
+def test(x,*args):
+    print(x)
+    print(args)
+test(1)
+test(1,1,2,3,4,5)
+def test1(x,**kwargs):
+    print(x)
+    print(kwargs)
+test1(1,y=2,z=3)
+def test2(x,*args,**kwargs):
+    print(x,args,kwargs)
+test2(1,2,3,4,45,y=-1,z='abs')
