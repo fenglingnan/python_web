@@ -1,4 +1,5 @@
 import sys
+import time
 print(sys.version)
 s=set('hello')
 print(s)
@@ -73,3 +74,29 @@ test1(1,y=2,z=3)
 def test2(x,*args,**kwargs):
     print(x,args,kwargs)
 test2(1,2,3,4,45,y=-1,z='abs')
+name='lh'
+print(id(name))
+def test3():
+    global name
+    name='ljx'
+    print(id(name))
+    def ini():
+        print(111)
+    return ini
+test3()#函数调用后才会发生全局变量的改变
+i=test3()
+print(i)
+print(id(name))
+###全局变量的变量名大写，局部小写
+#nonlocal 上一级变量类似global
+person_list=['ljx','zxf','zzm'];
+def ask_way(per):
+    print('-'*60)
+    if len(per)==0:
+        return '根本没人知道'
+    person=per.pop(0)
+    if person=='zxf':
+        return '%s知道'% person
+    time.sleep(3)
+    return ask_way(per)
+print(ask_way(person_list))
