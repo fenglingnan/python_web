@@ -115,3 +115,32 @@ def foo():
 foo()()
 func=lambda x:x+2
 print(func(10))
+#内置函数
+print(abs(-1))
+print(all([1,2,'-1',0]))#判断所有项bool（and）
+print(all([0,False,1]))
+print(bin(3))#转换2进制
+print(bool(2))#bool值转换
+print(bytes('你好',encoding='utf-8'))#转码
+print(bytes('你好',encoding='utf-8').decode('utf-8'))#解码
+print(bytes('你好',encoding='gbk'))
+print(bytes('你好',encoding='gbk').decode('gbk'))
+print(chr(97))#ascii表
+print(dir(chr))#查看内置方法__init__之类
+print(divmod(10,3))#取余数，商（分页用）
+print(eval('[1,2,3]'))#提取字符串,运行里面的内容
+print(hash((12,3,4)))#只有不可变类型才可哈希
+print(list(zip(('a','b','c','d'),(1,2,3))))#拉链效果,非一一对应就删除
+p={'name':'alex','age':18}
+print(list(zip(p.keys(),p.values())))
+l=[1,2,5,7,-2,100]
+print(max(l))
+print(min(l))
+people=[
+    {'name':'alex1','age':1000},
+    {'name':'alex2','age':4000},
+    {'name':'alex3','age':3000},
+    {'name':'ax','age':18},
+]
+#max里传的是dict默认比较是dict的key
+print(max(people,key=lambda x:x['age']))
