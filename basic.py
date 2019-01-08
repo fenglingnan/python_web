@@ -126,6 +126,7 @@ print(bytes('你好',encoding='utf-8').decode('utf-8'))#解码
 print(bytes('你好',encoding='gbk'))
 print(bytes('你好',encoding='gbk').decode('gbk'))
 print(chr(97))#ascii表
+print(ord('a'))#ascii表（和chr互逆）
 print(dir(chr))#查看内置方法__init__之类
 print(divmod(10,3))#取余数，商（分页用）
 print(eval('[1,2,3]'))#提取字符串,运行里面的内容
@@ -144,3 +145,22 @@ people=[
 ]
 #max里传的是dict默认比较是dict的key
 print(max(people,key=lambda x:x['age']))
+print(pow(2,3))#幂次运算
+print(pow(2,3,2))#2**3%2
+print(list(reversed(l)))#反转，不保存结果，不影响原数据
+print(set('hello'))#去重变为元组
+print(sorted(l))#排序
+print(sorted(people,key=lambda x:x['age'],reverse=True))
+def testn():
+    name='v啊狂顶v拿到v你'
+    print(locals())
+    print(vars())
+testn()
+print(vars(int))
+
+#两种import,__import__引入字符串类型
+# import Advanced
+# Advanced.foo('d')
+module_name='Advanced'
+m=__import__(module_name)
+m.foo('sb')
