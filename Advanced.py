@@ -91,6 +91,16 @@ with open('open_new.txt','r',encoding='utf-8') as f,\
     open('open.txt','w',encoding='utf-8') as g:
     data=f.readlines()
     g.writelines(data)
+#b模式只有2进制编码,不能指定编码
 ddd=open('open.txt','rb')
-ss=ddd.readlines()
-print(ss)
+ss=ddd.read()
+print(ss.decode('utf-8'))
+ddd.close()
+eee=open('open.txt','wb')
+print(bytes('自促\n',encoding='utf-8'))
+eee.write(bytes('自促\n',encoding='utf-8'))
+eee.write('祥'.encode('utf-8'))
+print(eee.tell())#光标位置
+eee.seek(0)#光标移动到某个位置
+print(eee.tell())
+#eee.truncate()文件截取
