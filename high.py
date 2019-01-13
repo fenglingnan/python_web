@@ -1,3 +1,4 @@
+import time
 """
     三元表达式
 """
@@ -42,3 +43,36 @@ bz=product()
 print(next(bz))
 print(next(bz))
 #生成器只能遍历一次，遍历完成后在内存中删除
+
+# def consumer(name):
+#     print('我是[%s],我准备开始吃包子了'%name);
+#     while True:
+#         baozi=yield
+#         time.sleep(1)
+#         print('%s 很开心的把[%s]吃掉了'%(name,baozi))
+# def producter():
+#     c1=consumer('阿祥');
+#     c1.__next__();
+#     for i in range(10):
+#         time.sleep(1)
+#         c1.send('猪肉粉丝馅%s' %i)
+# producter()
+
+def timer(func):
+    def wrapper(*args,**kwargs):
+        start_time=time.time()
+        res=func(*args,**kwargs);
+        stop_time=time.time()
+        print('函数运行时间是%s'%(stop_time-start_time))
+        return res
+    return wrapper
+@timer
+def cal(l):
+    res=0;
+    for i in l:
+        time.sleep(0.1)
+        res+=i
+    return res
+
+cal(range(20))
+# print(cal(range(20)))
