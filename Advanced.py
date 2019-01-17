@@ -1,5 +1,5 @@
-# def foo(n):
-#     print(n)
+def foo(n):
+    print(n)
 # def bar(name):
 #     print('my name is %s' % name)
 # foo(bar)

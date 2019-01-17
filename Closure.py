@@ -1,4 +1,5 @@
 import time
+import basic
 def timer(func):
     def wrapper(*args,**kwargs):
         result=func(*args,**kwargs)
@@ -23,3 +24,10 @@ d=2
 f=1
 d,f=f,d
 print(d,f)
+
+
+basic.foo()()
+
+print(basic.__name__)
+import sys
+print(sys.path)#解释器只认识sys.path
