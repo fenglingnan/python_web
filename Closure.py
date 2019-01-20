@@ -31,3 +31,18 @@ basic.foo()()
 print(basic.__name__)
 import sys
 print(sys.path)#解释器只认识sys.path
+print(sys.platform)
+print(time.time())#生成的时间戳是秒数
+print(time.localtime())
+print(time.localtime().tm_year)
+print(time.gmtime())#格林尼治时间utc，世界标准时间
+print(time.mktime(time.localtime()))
+print(time.strftime("%Y-%m-%d %X",time.localtime()))
+print(time.strftime("%Y-%m-%d %H-%M-%S %Z",time.localtime()))
+print(time.strptime("2019:1:20 22:48:22","%Y:%m:%d %X"))
+print(time.asctime())
+print(time.ctime())
+import datetime
+print(datetime.datetime.now())
+print(datetime.datetime)
+print(datetime.datetime.tzinfo)
