@@ -58,7 +58,7 @@ def v_code():
         ret+=s
     return ret
 print(v_code())
-import os
+import os,sys
 print(os.getcwd())#获得当前目录
 os.chdir('..')#相当于cd
 print(os.getcwd())
@@ -69,6 +69,7 @@ print(os.linesep)
 print(sys.platform)
 a='G:\git'
 b='python_web\high.py'
-print(os.path.join(a,b))#合并路径
-print(os.path.getmtime(os.path.join(a,b)))
+# print(os.path.join(a,b))#合并路径
+# print(os.path.getmtime(os.path.join(a,b)))
 print(os.environ)#系统环境变量
+print(sys.argv,sys.version)
