@@ -99,3 +99,90 @@ print(next(ne).group())
 print(ne.__next__().group())
 print(re.findall('http://www\.(baidu|163)\.com','vadvadvhttp://www.baidu.comvdadvad'))#优先匹配分组里的内容
 print(re.findall('http://www\.(?:baidu|163)\.com','vadvadvhttp://www.baidu.comvdadvad'))#?:去除优先级
+import logging
+#-----------config配置方式
+# logging.basicConfig(
+#     level=logging.DEBUG,
+#     filename="logger.log",
+#     filemode='w',
+#     format="%(asctime)s %(filename)s[%(lineno)d] %(message)s"
+# )
+# logging.debug('debug message')
+# logging.info('info message')
+# logging.warning('warning message')
+# logging.error('error message')
+# logging.critical('critical message')
+#级别critical>error>warning>info>debug>notset,默认输出warning以上
+#------------logger对象方式
+def logger():
+    logger = logging.getLogger()#加入的参数是唯一名字，如果重名则用一个对象
+
+    fh = logging.FileHandler("test_log")
+    ch = logging.StreamHandler()
+
+    fm = logging.Formatter('%(asctime)s %(message)s')
+
+    fh.setFormatter(fm)
+    ch.setFormatter(fm)
+
+    logger.addHandler(fh)
+    logger.addHandler(ch)
+    logger.setLevel('DEBUG')
+
+    return logger
+logger=logger()
+logger.debug('debug')
+logger.info('info')
+logger.warning('warning')
+logger.error("error")
+logger.critical('critical')
+
+import configparser
+config=configparser.ConfigParser()#相当于config={}
+config['DEFAULT']={
+    'ServiceAliveInterval':'45',
+    'Compression':'yes',
+    'CompressionLevel':'9',
+}
+config['bitbucket.org']={}
+config['bitbucket.org']['user']='hg'
+config['topsecret.server.com']={}
+topsecret=config['topsecret.server.com']
+topsecret['host port']='50022'
+topsecret['forwardX11']='no'
+config['DEFAULT']['forwardx11']='yes'
+with open('example.ini','w') as configfile:
+    config.write(configfile)
+
+
+
+#-----------增删改查
+# print(config.sections())
+config.read('example.ini')
+print(config.sections())#default不输出
+print('baidu.com' in config)
+print(config['bitbucket.org']['user'])#大小写不敏感
+for key in config:
+    # print(key)
+    # print(config[key])
+    for k in config[key]:
+        print(k,config[key][k])
+print(config.options('bitbucket.org'))#default在前
+print(config.items('bitbucket.org'))
+print(config.get('bitbucket.org','compression'))
+config.add_section('yuan')
+config.set('yuan','k1','2222')#加的值必须是str
+config.remove_section('bitbucket.org')
+config.remove_option('topsecret.server.com','forwardx11')
+
+config.write(open('i.cfg','w'))
+
+import hashlib
+obj=hashlib.md5('sb'.encode('utf8'))#加盐
+obj.update('hello'.encode('utf-8'))
+print(obj.hexdigest(),len(obj.hexdigest()))
+obj.update('admin'.encode('utf-8'))#有累加,helloadmin
+print(obj.hexdigest())
+hashs=hashlib.sha512()
+hashs.update('alex'.encode('utf8'))
+print(hashs.hexdigest(),len(hashs.hexdigest()))
