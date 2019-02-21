@@ -13,3 +13,28 @@ print(Dog.__bases__)#继承自哪里，默认是object
 print(Dog.__module__)#模块引用
 p1=Dog()
 print(p1.noo)#作用域起作用
+country='中国'
+class Chinese(object):
+    country='日本'#这个变量在class里调用的话要用类名.变量名
+    def __init__(self,name):
+        self.name=name;
+        print('dd %s'%country)
+        print(Chinese.country)
+
+p1=Chinese('alex')
+class Chinese(object):
+    l=['a','b']
+    def __init__(self,name):
+        self.name=name;
+        print('dd %s'%country)
+
+p2=Chinese('alex')
+print(p2.l)
+# p2.l=[1,2,3]#改的是实例里的属性，赋值
+# print(p2.l)
+# print(Chinese.l)
+p2.l.append('c')#改的是类里面的属性
+print(p2.l)
+print(p2.__dict__)
+print(Chinese.l)
+
