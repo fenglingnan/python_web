@@ -38,3 +38,47 @@ print(p2.l)
 print(p2.__dict__)
 print(Chinese.l)
 
+class Room(object):
+    tag=1
+    def __init__(self,width,length):
+        self.width=width
+        self.length=length
+        print(self)
+
+    @property#把函数属性变成数据属性
+    def calc_area(self):
+        print("面积是%s"%(self.width*self.length))
+    @classmethod#类的方法,操作类的时候用到
+    def cla_mth(cls):#cls是类本身,self表示实例本身
+        print(cls.tag)
+    @staticmethod#静态方法,和类实例都没关系，不加@staticmethod,实例没办法调用(self问题)
+    def sta_set():
+        print(Room.tag+1)
+r1=Room(100,100)
+r1.calc_area
+print(type(r1.calc_area))
+Room.cla_mth()
+
+r2=Room(5,5)
+Room.sta_set()
+"""
+    实例只有数据属性，没有函数属性
+"""
+print('-'*30)
+class Hand(object):
+    pass
+class Foot(object):
+    pass
+class Trunk(object):
+    pass
+class Head(object):
+    pass
+class Person(object):
+    def __init__(self,id_num,name):
+        self.id_num=id_num
+        self.name=name
+        self.hand=Hand()
+        self.foot=Foot()
+        self.trunk=Trunk()
+        self.head=Head()
+
