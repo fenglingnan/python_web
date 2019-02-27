@@ -81,4 +81,88 @@ class Person(object):
         self.foot=Foot()
         self.trunk=Trunk()
         self.head=Head()
+"""
+    组合类是为了直接链接类和类的关系，比实例间的关系更好
+"""
+class Dad(object):
+    '这是爸爸类'
+    money=10
+    def __init__(self,name):
+        print('爸爸')
+        self.name=name
+    def hit_son(self):
+        print('%s正在打儿子'%self.name)
+
+class Son(Dad):
+    '这是儿子类'
+    money = 6666
+    pass
+print(Son.money)
+print(Dad.__dict__)
+print(Son.__dict__)
+s1=Son('alex')
+print(s1.money,s1.name)
+s1.hit_son()
+print(Son.money)#先从自身找属性和方法，没有就往父级找，非覆盖
+print(Dad.money)
+"""
+    继承一般用做基类，基础功能的封装
+    python中在继承定义好之后会有MRO(继承顺序)
+    深度优先和广度优先
+"""
+#继承顺序
+class A(object):
+    def test(self):
+        print('A')
+class B(A):
+    def test(self):
+        print('B')
+    # pass
+class C(A):
+    def test(self):
+        print('C')
+class D(B):
+    def test(self):
+        print('D')
+    # pass
+class E(C):
+    def test(self):
+        print('E')
+class F(D,E):
+    # def test(self):
+    #     print('F')
+    #从左右往右循环找父类
+    pass
+f1=F()
+f1.test()
+print(F.mro())#获得MRO顺序，最后默认一个是object基类
+
+print('-'*50)
+class Vehichle(object):
+    Country='China'
+    def __init__(self,name,speed,load,power):
+        self.name=name
+        self.speed=speed
+        self.load=load
+        self.power=power
+    def run(self):
+        print('开动啦')
+
+class Subway(Vehichle):
+    def __init__(self,name,speed,load,power,line):
+        # Vehichle.__init__(self,name,speed,load,power)
+        # super().__init__(name,speed,load,power)#super不用写self，不用改父类的名称(解耦)等同于super(__class__,self)
+        super(Subway,self).__init__(name,speed,load,power)#同样逻辑
+        self.line = line
+    def show_info(self):
+        print(self.name,self.line)
+    def run(self):
+        # Vehichle.run(self)
+        super().run()
+        print('%s %s线开动啦'%(self.name,self.line))
+line13=Subway('北京地铁','100m/s',10000,'elec',13)
+line13.show_info()
+line13.run()
+print(line13.__class__)
+
 
