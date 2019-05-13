@@ -51,6 +51,7 @@ class Room(object):
     @classmethod#类的方法,操作类的时候用到
     def cla_mth(cls):#cls是类本身,self表示实例本身
         print(cls.tag)
+        print(cls,'2222')
     @staticmethod#静态方法,和类实例都没关系，不加@staticmethod,实例没办法调用(self问题)
     def sta_set():
         print(Room.tag+1)
@@ -95,7 +96,7 @@ class Dad(object):
 
 class Son(Dad):
     '这是儿子类'
-    money = 6666
+    money = 66666
     pass
 print(Son.money)
 print(Dad.__dict__)
