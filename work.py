@@ -39,3 +39,37 @@ class Hello(object):
 h1=Hello();
 print(h1.stu)
 print(Hello.stu)
+
+
+class World(object):
+    feture='ugly'
+    def __init__(self,name,addr):
+        self.name=name
+        self.addr=addr
+
+    def sell(self):
+        print('%s正在卖房' % self.name)
+
+    def buy_house(self):
+        print('买房')
+
+wow=World('阿祥','厦门')
+print(hasattr(wow,'name'),hasattr(wow,'sell'))
+print(getattr(wow,'name'),getattr(wow,'sell'))#没有属性则报错
+print(getattr(wow,'name'),getattr(wow,'sell——2222','222'))
+func=getattr(wow,'sell')
+func()
+
+setattr(wow,'s1',True)#同wow.s1=True
+print(wow.__dict__)
+
+delattr(wow,'s1')#同del wow.s1
+print(wow.__dict__)
+
+test=__import__('modules')#动态导入模块,会执行导入模块里的代码,私有方法和属性会起作用
+test.test1()
+test.__test3()
+import importlib
+
+testdo=importlib.import_module('modules')
+print(testdo)
