@@ -73,3 +73,41 @@ import importlib
 
 testdo=importlib.import_module('modules')
 print(testdo)
+
+class Foo(object):
+    x=1
+    def __init__(self,y):
+        self.y=1
+
+    def __getattr__(self, item):
+        #调用不存在的属性时会执行
+        print('执行__getattr__',item,self)
+    def __delattr__(self, item):
+        #删除都会触发
+        print('删除操作')
+    def __setattr__(self, key, value):
+        print('设置属性')
+        # self.key=value会递归死循环
+        self.__dict__[key]=value
+f=Foo(2)
+del f.y
+f.ss
+print(f.__dict__)
+
+class Open:
+    def __init__(self,file_name,mode='r',encoding='utf-8'):
+        self.file=open(file_name,mode,encoding=encoding)
+        self.mode=mode
+        self.encoding=encoding
+    def write(self,line):
+        times=__import__('time')
+        self.file.write('%s %s' %(times.strftime('%Y-%m-%d %X'),line))
+    def __getattr__(self, item):
+        # print(item,type(item),getattr(self.file,item))
+        return getattr(self.file,item)
+f=Open('a.txt','w')
+print(f.read)
+# f.read
+f.write('我是rog\n')
+f.write('我是GM501\n')
+f.write('我是RTX2080Ti\n')
