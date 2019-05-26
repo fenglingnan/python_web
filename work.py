@@ -76,6 +76,9 @@ print(testdo)
 
 class Foo(object):
     x=1
+    '''
+        __getattr__,__setattr__,__delattr__只在实例里触发，不在类里面触发
+    '''
     def __init__(self,y):
         self.y=1
 
@@ -111,3 +114,31 @@ print(f.read)
 f.write('我是rog\n')
 f.write('我是GM501\n')
 f.write('我是RTX2080Ti\n')
+
+class H2O(object):
+    dod=2
+
+# print(H2O.do)这里会报错，不能用js的方法来写要用hasattr，getattr等方法
+'''
+    导入本模块
+'''
+import sys
+obj1=sys.modules[__name__]
+print(hasattr(obj1,'H2O'))
+
+class Foo:
+    #isistance对父类继承的类也是返回true
+    pass
+print('--->',issubclass(Foo,object))
+print(Foo.__dict__)
+
+class Slot(object):
+    #设置slot会取消__dict__
+    # __slots__ = ['name','age'] # {name:None,age:None}
+    __slots__ = 'name' #{name:None}
+f1=Slot();
+f1.name='alex'
+print(f1.name)
+
+# f1.age=18这里会报错，定义了slot就不能用dict的方法定义
+print(object.__dict__)
