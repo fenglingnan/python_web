@@ -1,3 +1,4 @@
+import sys
 class Foo(object):
     def __init__(self,n):
         self.n=n
@@ -50,3 +51,25 @@ print(next(f1))
 
 for i in f1:
     print(i)
+
+class Foo:
+    def __init__(self,name):
+        self.name=name
+
+    def __enter__(self):
+        print('执行enter')
+        return self
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        print('执行exit')
+        print(exc_type)
+        print(exc_val)
+        print(exc_tb)
+        return True
+
+with Foo('a.txt') as f:
+    #with里的异常会直接触发exit,返回True就不会继续报错,with完毕
+    print(f)
+    print(vadvadvad)
+    print(f.name)
+
+print('222222222')
