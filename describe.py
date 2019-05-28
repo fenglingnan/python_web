@@ -21,17 +21,39 @@ class Type:
             # raise TypeError('传入的值不是字符串类型')
         instance.__dict__[self.key]=value
 
+def p_deco(**kwargs):
+    def wrapper(obj):
+        for key,val in kwargs.items():
+            setattr(obj,key,Type(key,val))
+        return obj
+    return wrapper
+
+@p_deco(name=str,age=int,salary=dict)
 class People:
-    name=Type('name',str)
-    age=Type('age',int)
-    salary=Type('salary',dict)
+    # name=Type('name',str)
+    # age=Type('age',int)
+    # salary=Type('salary',dict)
     def __init__(self,name,age,salary):
         self.name=name
         self.age=age
         self.salary=salary
 
-p1=People('xiang',18,30.2)
-p1.name
-p1.name=333
-p1.age='333'
-print(p1.__dict__)
+p1=People('xiang',18.2,30.2)
+# p1.name
+# p1.name=333
+# p1.age='333'
+print('---->',p1.__dict__)
+
+def Typed(**kwargs):
+    def deco(obj):
+        # obj.__dict__=dict(obj.__dict__,**kwargs)#不能混合，obj.__dict__不可写
+        for key,val in kwargs.items():
+            setattr(obj,key,val)
+        return obj
+    return deco
+
+@Typed(x=1,y=2,z=3)   #Foo=deco(Foo)
+class Foo:
+    pass
+
+print(Foo.__dict__)
