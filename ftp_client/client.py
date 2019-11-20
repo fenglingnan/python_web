@@ -3,6 +3,24 @@ import socket
 import configparser
 import json
 
+STATUS_CODE={
+    250:'invalid cmd format,e.g:{"action":"get","file_name":"test.py","size":"344"}',
+    251:'invalid cmd',
+    252:'invalid auth data',
+    253:'wrong username or password',
+    254:'passed authenticate',
+    255:'filename doesn’t provided',
+    256:'file doesn’t exist on server',
+    257:'ready to send file',
+    258:'md5 verification',
+
+    800:'the file exist,but not enough ,is continue',
+    801:'the file exist!',
+    802:'ready to receive data',
+
+    900:'md5 valdate success'
+}
+
 class ClientHandler():
 
     def __init__(self):
@@ -64,8 +82,12 @@ class ClientHandler():
         }
         self.sock.send(json.dumps(data).encode('utf-8'))
         res=self.get_data()
-        print(res)
-
+        print(res['status_code'])
+        if res['status_code']==254:
+            self.user=user
+            print(STATUS_CODE[254])
+        else:
+            print(STATUS_CODE[res['status_code']])
 
 ch=ClientHandler()
 ch.interactive()
