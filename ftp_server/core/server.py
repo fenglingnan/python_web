@@ -3,6 +3,7 @@ import json
 import socketserver
 import configparser
 from conf import settings
+import os
 
 STATUS_CODE={
     250:'invalid cmd format,e.g:{"action":"get","file_name":"test.py","size":"344"}',
@@ -56,8 +57,36 @@ class ServerHandler(socketserver.BaseRequestHandler):
         else:
             self.send_res(253)
 
-    def pu(self,**data):
-        pass
+    def put(self,**data):
+
+        print('data',data)
+        has_received=0
+        file_name=data.get('file_name')
+        file_size = data.get('file_size')
+        target_path = data.get('target_path')
+
+        abs_path=os.path.join(self.main_path,target_path,file_name)
+
+        '''文件是否存在，文件是否完整（断点续传），是否续传'''
+        if os.path.exists(abs_path):
+            file_has_size=os.stat(abs_path).st_size
+            if file_has_size<file_size:
+                #断点续传
+                self.request.sendall('800'.encode('utf-8'))
+            else:
+                #文件完全存在
+                self.request.sendall('801'.encode('utf-8'))
+                return
+        else:
+            self.request.sendall('802'.encode('utf-8'))
+            f=open(abs_path,'wb')
+
+        while has_received<file_size:
+            data=self.request.recv(1024)
+            f.write(data)
+            has_received+=len(data)
+
+        f.close()
 
     def authenticate(self,user,pwd):
 
@@ -66,5 +95,7 @@ class ServerHandler(socketserver.BaseRequestHandler):
         if user in cfg.sections():
             if cfg[user]['Password']==pwd:
                 self.user=user
+                #路径拼接，服务端的目录结构决定拼接的顺序及层级
+                self.main_path=os.path.join(settings.BASE_DIR,'home',self.user)
                 print('passion is complete')
                 return user

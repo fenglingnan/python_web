@@ -2,6 +2,7 @@ import optparse
 import socket
 import configparser
 import json
+import os
 
 STATUS_CODE={
     250:'invalid cmd format,e.g:{"action":"get","file_name":"test.py","size":"344"}',
@@ -34,6 +35,7 @@ class ClientHandler():
         self.opt,self.args=self.op.parse_args()
         self.verify_args(self.opt,self.args)
         self.run_connect()
+        self.main_path=os.path.dirname(os.path.abspath(__file__))
 
     def verify_args(self,opt,args):
 
@@ -56,7 +58,47 @@ class ClientHandler():
 
     def interactive(self):
 
-        self.authenticate()
+        if self.authenticate():
+            print('begin to interactive')
+            cmd_info=input('[%s]'%self.user).strip()#put
+            cmd_list=cmd_info.split()
+
+            if hasattr(self,cmd_list[0]):
+                func=getattr(self,cmd_list[0])
+                func(cmd_list)
+
+    def put(self,*cmd_list):
+
+        #put 12.png image
+        action,local_path,target_path=cmd_list
+        local_path=os.path.join(self.main_path,local_path)
+        file_name=os.path.basename(local_path);
+        file_size=os.stat(local_path).st_size
+
+        data={
+            'action':'put',
+            'file_name':file_name,
+            'file_size':file_size,
+            'target_path':target_path
+        }
+        self.sock.send(json.dumps(data).encode('utf-8'))
+        is_exist=self.sock.recv(1024).decode('utf-8')
+        has_sent=0
+        if is_exist=='800':
+            #文件不完整
+            pass
+        elif is_exist=='801':
+            #文件完全存在
+            return
+        else:
+            pass
+
+        f=open(local_path,'rb')
+        while has_sent<file_size:
+            data=f.read(1024)
+            self.sock.sendall(data)
+            has_sent+=len(data)
+        f.close()
 
     def authenticate(self):
 
@@ -86,6 +128,7 @@ class ClientHandler():
         if res['status_code']==254:
             self.user=user
             print(STATUS_CODE[254])
+            return True
         else:
             print(STATUS_CODE[res['status_code']])
 
