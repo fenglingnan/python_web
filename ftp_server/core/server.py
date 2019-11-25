@@ -82,7 +82,11 @@ class ServerHandler(socketserver.BaseRequestHandler):
             f=open(abs_path,'wb')
 
         while has_received<file_size:
-            data=self.request.recv(1024)
+            try:
+
+                data=self.request.recv(1024)
+            except Exception as e:
+                break
             f.write(data)
             has_received+=len(data)
 
@@ -99,3 +103,38 @@ class ServerHandler(socketserver.BaseRequestHandler):
                 self.main_path=os.path.join(settings.BASE_DIR,'home',self.user)
                 print('passion is complete')
                 return user
+
+    def ls(self,**data):
+
+        file_list=os.listdir(self.main_path)
+
+        file_str='\n'.join(file_list)
+        print(file_str.encode('utf-8'))
+        if not file_str:
+            file_str='<empty dir>'.encode('utf-8')
+        self.request.sendall(file_str.encode('utf-8'))
+
+    def cd(self,**data):
+
+        dir_name=data.get('dirname')
+
+        if dir_name=='..':
+            self.main_path=os.path.dirname(self.main_path)
+        else:
+            self.main_path=os.path.join(self.main_path,dir_name)
+
+        self.request.sendall(self.main_path.encode('utf-8'))
+
+    def mkdir(self,**data):
+
+        dirname=data.get('dirname')
+        path=os.path.join(self.main_path,dirname)
+
+        if not os.path.exists(path):
+            if '/' in dirname:
+                os.makedirs(path)
+            else:
+                os.mkdir(path)
+            self.request.sendall('creat success!'.encode('utf-8'))
+        else:
+            self.request.sendall('dirname exist'.encode('utf-8'))

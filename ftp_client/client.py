@@ -2,7 +2,7 @@ import optparse
 import socket
 import configparser
 import json
-import os
+import os,sys
 
 STATUS_CODE={
     250:'invalid cmd format,e.g:{"action":"get","file_name":"test.py","size":"344"}',
@@ -27,6 +27,7 @@ class ClientHandler():
     def __init__(self):
 
         self.op=optparse.OptionParser()
+        # self.last = 0
         self.op.add_option('-s','--server',dest='server')
         self.op.add_option('-P', '--port', dest='port')
         self.op.add_option('-u', '--username', dest='username')
@@ -60,7 +61,7 @@ class ClientHandler():
 
         if self.authenticate():
             print('begin to interactive')
-            cmd_info=input('[%s]'%self.user).strip()#put
+            cmd_info=input('[%s]'%self.current).strip()#put
             cmd_list=cmd_info.split()
 
             if hasattr(self,cmd_list[0]):
@@ -69,8 +70,10 @@ class ClientHandler():
 
     def put(self,*cmd_list):
 
-        #put 12.png image
-        action,local_path,target_path=cmd_list
+        # print(cmd_list)
+        #put 12.png image 返回的是一个元组，注意索引cmd_list不是一个单独数组
+        action,local_path,target_path=cmd_list[0]
+
         local_path=os.path.join(self.main_path,local_path)
         file_name=os.path.basename(local_path);
         file_size=os.stat(local_path).st_size
@@ -98,6 +101,7 @@ class ClientHandler():
             data=f.read(1024)
             self.sock.sendall(data)
             has_sent+=len(data)
+            self.show_progress(has_sent,file_size)
         f.close()
 
     def authenticate(self):
@@ -127,10 +131,49 @@ class ClientHandler():
         print(res['status_code'])
         if res['status_code']==254:
             self.user=user
+            self.current=user
             print(STATUS_CODE[254])
             return True
         else:
             print(STATUS_CODE[res['status_code']])
+
+    def show_progress(self,has,total):
+
+        rate=float(has)/float(total)
+        rate_num=int(rate*100)
+        # if self.last!=rate_num:
+        sys.stdout.write('%s%% %s\r'%(rate_num,'#'*rate_num))
+        # self.last=rate_num
+
+    def ls(self,*cmd_list):
+
+        data={
+            'action':'ls'
+        }
+
+        self.sock.sendall(json.dumps(data).encode('utf-8'))
+        data=self.sock.recv(1024).decode('utf-8')
+        print(data)
+
+    def cd(self,*cmd_list):
+
+        # print(cmd_list)
+        # 解析似乎和教程不太一样
+        data={
+            'action':'cd',
+            'dir_name':cmd_list[0][1]
+        }
+        self.sock.sendall(json.dumps(data).encode('utf-8'))
+        data = self.sock.recv(1024).decode('utf-8')
+        self.current=os.path.basename(data)
+
+    def mkdir(self,*cmd_list):
+
+        data={
+            'action':'mkdir',
+            'dirname':cmd_list[1]
+        }
+        self.sock.sendall(json.dumps(data).encode('utf-8'))
 
 ch=ClientHandler()
 ch.interactive()
