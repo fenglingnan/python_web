@@ -32,7 +32,7 @@ class ClientHandler():
         self.op.add_option('-P', '--port', dest='port')
         self.op.add_option('-u', '--username', dest='username')
         self.op.add_option('-p', '--password', dest='password')
-
+        self.current=''
         self.opt,self.args=self.op.parse_args()
         self.verify_args(self.opt,self.args)
         self.run_connect()
@@ -58,7 +58,6 @@ class ClientHandler():
         self.sock.connect((self.opt.server,int(self.opt.port)))
 
     def interactive(self):
-
         if self.authenticate():
             print('begin to interactive')
             cmd_info=input('[%s]'%self.current).strip()#put
@@ -147,10 +146,8 @@ class ClientHandler():
 
     def ls(self,*cmd_list):
 
-        data={
-            'action':'ls'
-        }
-
+        data={"action":"ls"}
+        print(json.dumps(data).encode('utf-8'))
         self.sock.sendall(json.dumps(data).encode('utf-8'))
         data=self.sock.recv(1024).decode('utf-8')
         print(data)
@@ -165,13 +162,14 @@ class ClientHandler():
         }
         self.sock.sendall(json.dumps(data).encode('utf-8'))
         data = self.sock.recv(1024).decode('utf-8')
+        print(os.path.basename(data))
         self.current=os.path.basename(data)
 
     def mkdir(self,*cmd_list):
 
         data={
             'action':'mkdir',
-            'dirname':cmd_list[1]
+            'dirname':cmd_list[0][1]
         }
         self.sock.sendall(json.dumps(data).encode('utf-8'))
 

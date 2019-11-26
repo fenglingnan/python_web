@@ -31,15 +31,19 @@ class ServerHandler(socketserver.BaseRequestHandler):
         while True:
             #conn=self.request
             data=self.request.recv(1024).strip()
-            data=json.loads(data.decode('utf-8'))
-            if data.get('action'):
-                if hasattr(self,data.get('action')):
-                    func=getattr(self,data.get('action'))
-                    func(**data)
+            print(data)
+            if data:
+                #增加判断是因为出现未知的空格
+                #登录无空格，cd、ls命令会出现空格
+                data=json.loads(data.decode('utf-8'))
+                if data.get('action'):
+                    if hasattr(self,data.get('action')):
+                        func=getattr(self,data.get('action'))
+                        func(**data)
+                    else:
+                        print('invalid cmd')
                 else:
                     print('invalid cmd')
-            else:
-                print('invalid cmd')
 
     def send_res(self,state_code):
 
@@ -115,8 +119,8 @@ class ServerHandler(socketserver.BaseRequestHandler):
         self.request.sendall(file_str.encode('utf-8'))
 
     def cd(self,**data):
-
-        dir_name=data.get('dirname')
+        print(data)
+        dir_name=data.get('dir_name')
 
         if dir_name=='..':
             self.main_path=os.path.dirname(self.main_path)
@@ -128,6 +132,7 @@ class ServerHandler(socketserver.BaseRequestHandler):
     def mkdir(self,**data):
 
         dirname=data.get('dirname')
+
         path=os.path.join(self.main_path,dirname)
 
         if not os.path.exists(path):
