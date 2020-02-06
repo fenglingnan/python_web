@@ -10,3 +10,6 @@ CREATE TABLE employee(
 
 )
 INSERT INTO user (name,salary,depart) values ('阿祥',20000,'技术')
+mysql 执行顺序 from where select group by having order by
+分组过滤不能使用where 用having
+count(*)统计所有行,count(字段)不统计null
