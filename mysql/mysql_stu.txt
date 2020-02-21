@@ -85,3 +85,21 @@ CREATE TABLE test1(
 INSERT INTO test1(name) VALUES ('111'),
                                 ('222');
 PRIMARY KEY自动索引
+
+
+CREATE TABLE emp(
+    id INT,
+    name VARCHAR(20),
+    INDEX index_name (name)
+)
+delimiter $$
+create procedure autoinsert()
+     begin
+     declare i int default 1;
+     while(i<500000) do
+     insert into t1 values(i,'yuan');
+     set i=i+1;
+     end while;
+end $$
+
+#事务指逻辑上的一组操作，组成操作的各个单元，要么全部成功，要么全部不成功
