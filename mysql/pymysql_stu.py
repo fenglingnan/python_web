@@ -3,7 +3,7 @@ import pymysql
 
 conn=pymysql.connect(host='47.107.129.166',port=3306,user='root',passwd='LINxiang@5',db='PYLINK')
 
-print(conn)
+print(conn,6666)
 cursor=conn.cursor(cursor=pymysql.cursors.DictCursor)#设置成字典形式光标
 #excute执行命令
 sql="CREATE TABLE IF NOT EXISTS TEST(id INT,name VARCHAR(20))"
