@@ -12,7 +12,7 @@ cursor.execute(sql);
 # ret=cursor.execute("INSERT INTO TEST VALUES (5,'ALEX'),(6,'ALVIN')")
 #ret代表影响行数
 
-res=cursor.execute("SELECT * FROM TEST")
+res=cursor.execute("SELECT * FROM account")
 print(res)
 print(cursor.fetchone())
 print(cursor.fetchone())

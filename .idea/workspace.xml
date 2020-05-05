@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a8396f2-f964-4ec9-b418-cc7793ddebad" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sock_serve.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysql+redis/mysql_index.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/python_web.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/python_web.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysql/pymysql_stu.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysql/pymysql_stu.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,73 +20,66 @@
     <SUITE FILE_PATH="coverage/python_web$ntp_server.coverage" NAME="ntp_server Coverage Results" MODIFIED="1570693679976" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/python_web$sock_serve.coverage" NAME="sock_serve Coverage Results" MODIFIED="1570870217574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="1324281365">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.22" value="1" />
-          <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="py" value="6" />
-          <entry key="test_log" value="1" />
-          <entry key="txt" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="6" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="py" value="427" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="Python" value="427" />
-        </counts>
-      </usages-collector>
-    </session>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ntp_client.py">
+        <entry file="file://$PROJECT_DIR$/mysql+redis/mysql_stu.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ntp_server.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
-              <folding>
-                <element signature="e#0#20#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="551">
+              <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/sock_serve.py">
+        <entry file="file://$PROJECT_DIR$/mysql+redis/mysql_index.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="18" column="34" lean-forward="true" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
-              <folding>
-                <marker date="1570870820622" expanded="true" signature="69:74" ph="..." />
-                <marker date="1570870820622" expanded="true" signature="91:100" ph="..." />
-              </folding>
+            <state relative-caret-position="140">
+              <caret line="35" column="26" lean-forward="true" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mysql+redis/init.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5336">
+              <caret line="145" column="2" lean-forward="true" selection-start-line="145" selection-start-column="2" selection-end-line="145" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mysql/mysql_stu.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2697" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mysql/stu.sql">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mysql/pymysql_stu.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3">
+              <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -94,6 +90,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="SQL File" />
       </list>
     </option>
   </component>
@@ -105,14 +102,12 @@
       <list>
         <option value="$PROJECT_DIR$/work.py" />
         <option value="$PROJECT_DIR$/sock_serve.py" />
+        <option value="$PROJECT_DIR$/mysql+redis/init.sql" />
+        <option value="$PROJECT_DIR$/mysql+redis/mysql_stu.sql" />
+        <option value="$PROJECT_DIR$/mysql/pymysql_stu.py" />
+        <option value="$PROJECT_DIR$/mysql+redis/mysql_index.sql" />
       </list>
     </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="260" />
@@ -128,7 +123,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -136,18 +130,30 @@
               <item name="python_web" type="b2602c69:ProjectViewProjectNode" />
               <item name="python_web" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="python_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="python_web" type="462c0819:PsiDirectoryNode" />
+              <item name="mysql" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="python_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="python_web" type="462c0819:PsiDirectoryNode" />
+              <item name="mysql+redis" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
+    <property name="settings.editor.selected.configurable" value="Console" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -161,7 +167,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.ntp_client">
+  <component name="RunManager" selected="Python.pymysql_stu">
     <configuration name="ntp_client" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="python_web" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -228,6 +234,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="pymysql_stu" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="python_web" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mysql" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mysql/pymysql_stu.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="sock_serve" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="python_web" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -255,9 +283,11 @@
       <item itemvalue="Python.ntp_server" />
       <item itemvalue="Python.ntp_client" />
       <item itemvalue="Python.sock_serve" />
+      <item itemvalue="Python.pymysql_stu" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.pymysql_stu" />
         <item itemvalue="Python.ntp_client" />
         <item itemvalue="Python.sock_serve" />
         <item itemvalue="Python.ntp_server" />
@@ -275,18 +305,34 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1570691529368</updated>
+      <workItem from="1588080035335" duration="1015000" />
+      <workItem from="1588397102078" duration="1753000" />
+      <workItem from="1588400960657" duration="21134000" />
+      <workItem from="1588661444831" duration="9102000" />
     </task>
+    <task id="LOCAL-00001" summary="数据库补充">
+      <created>1588602379830</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1588602379830</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="33004000" />
+  </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2660858" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.7590618" visible="true" weight="0.32899022" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.7573727" visible="true" weight="0.47875354" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -294,7 +340,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.23669924" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.24093817" side_tool="true" visible="true" weight="0.32899022" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.24262735" side_tool="true" visible="true" weight="0.47875354" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -307,8 +353,12 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="数据库补充" />
+    <option name="LAST_COMMIT_MESSAGE" value="数据库补充" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/python_web$pymysql_stu.coverage" NAME="pymysql_stu Coverage Results" MODIFIED="1588676030772" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mysql" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/test_log">
@@ -345,9 +395,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sock_serve.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="25" column="21" lean-forward="true" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ntp_server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
+        <state relative-caret-position="319">
           <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
@@ -362,14 +419,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sock_serve.py">
+    <entry file="file://$PROJECT_DIR$/example.ini">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="18" column="34" lean-forward="true" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
-          <folding>
-            <marker date="1570870820622" expanded="true" signature="69:74" ph="..." />
-            <marker date="1570870820622" expanded="true" signature="91:100" ph="..." />
-          </folding>
+        <state relative-caret-position="261">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysql+redis/init.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5336">
+          <caret line="145" column="2" lean-forward="true" selection-start-line="145" selection-start-column="2" selection-end-line="145" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysql/stu.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysql/mysql_stu.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2697" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysql+redis/mysql_stu.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysql/pymysql_stu.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3">
+          <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysql+redis/mysql_index.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="35" column="26" lean-forward="true" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
         </state>
       </provider>
     </entry>
