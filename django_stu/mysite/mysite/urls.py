@@ -19,9 +19,11 @@ from django.urls import path,re_path,include
 from blog import views
 
 urlpatterns = [
+
     path(r'admin/', admin.site.urls),
     path(r'show_time/',views.show_time),
     re_path(r'blog/',include('blog.urls')),
     re_path(r'^login',views.login)
     #有名分组需要和名字对应
 ]
+handler404 = views.notfound

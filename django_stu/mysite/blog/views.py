@@ -33,3 +33,10 @@ def register(req):
 
 def login(req):
     return render(req,'login.html')
+
+def notfound(req,exception,template_name='404.html'):
+    return render(req,template_name)
+
+
+def all_url(req):
+    return render(req,'red.html')
