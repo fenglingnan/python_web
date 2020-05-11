@@ -22,6 +22,7 @@ urlpatterns = [
 
     path(r'admin/', admin.site.urls),
     path(r'show_time/',views.show_time),
+    re_path(r'index',views.index),
     re_path(r'blog/',include('blog.urls')),
     re_path(r'^login',views.login)
     #有名分组需要和名字对应
