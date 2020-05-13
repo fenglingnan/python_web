@@ -4,6 +4,21 @@ import time
 #views里面加函数默认值处理多种情况
 
 # Create your views here.
+#用装饰器给函数做拦截
+#继承dispatch给class做拦截
+
+
+def dec(func):
+    def run(*args,**kwargs):
+        print('请求之前')
+        ret=func(*args,**kwargs)
+        print('请求之后')
+        return ret
+    return run
+
+
+
+@dec
 def show_time(req):
 
 
@@ -45,3 +60,30 @@ def index(req):
     return render(req,'index.html',{'t':t})
 def all_url(req):
     return render(req,'red.html')
+
+def blog404(req):
+    return render(req,'blog404.html')
+
+
+from django.views import View
+from django.utils.decorators import method_decorator
+class LoginView(View):
+
+    def dispatch(self, request, *args, **kwargs):
+
+        ret=super().dispatch(request, *args, **kwargs);
+        #请求前的拦截，重写dispatch
+        #请求前都过的方法，分发
+        return ret
+
+    @method_decorator(dec)#类的装饰器参考方法的装饰器
+    def get(self,request):
+
+        return render(request,'login2.html')
+
+    def post(self,request):
+        username=request.POST.get('username')
+        userpwd = request.POST.get('userpwd')
+
+        print(username,userpwd)
+        return HttpResponse('hello world')
