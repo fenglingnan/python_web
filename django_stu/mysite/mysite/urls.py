@@ -19,7 +19,7 @@ from django.urls import path,re_path,include
 from blog import views
 
 urlpatterns = [
-
+    path(r'feng/',views.feng),
     path(r'admin/', admin.site.urls),
     path(r'show_time/',views.show_time),
     re_path(r'index',views.index),

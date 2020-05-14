@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>这里是枫岭南</div>
+    <form action="" method="post">
+        <p>{{csrf_token}}</p>
+        {% csrf_token %}
+        用户名：<input type="text" />
+        密码： <input type="password" />
+        <button>提交</button>
+    </form>
+</body>
+</html>

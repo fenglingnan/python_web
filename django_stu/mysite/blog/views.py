@@ -17,14 +17,18 @@ def dec(func):
     return run
 
 
-
 @dec
 def show_time(req):
 
-
+    name_list=[
+        'lin',
+        'huang',
+        'hu'
+    ]
     # return HttpResponse('hello')
     t=time.ctime()
-    return render(req,'index.html',{'t':t})
+    b=2
+    return render(req,'index.html',locals())
 
 def articles_year(req,year):
 
@@ -87,3 +91,9 @@ class LoginView(View):
 
         print(username,userpwd)
         return HttpResponse('hello world')
+
+def feng(req):
+    if req.method=='GET':
+        return render(req,'feng.html')
+    if req.method=='POST':
+        return HttpResponse('成功')
