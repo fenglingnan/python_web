@@ -25,7 +25,10 @@ urlpatterns = [
     re_path(r'index',views.index),
     re_path(r'blog/',include('blog.urls')),
     re_path(r'^login$',views.login),
-    re_path(r'^login2',views.LoginView.as_view())
+    re_path(r'^login2',views.LoginView.as_view()),
+    path(r'base/',views.base),
+    path(r'get_base/',views.get_base),
+    path(r'diy/',views.diy)
     #有名分组需要和名字对应
 ]
 handler404 = views.notfound

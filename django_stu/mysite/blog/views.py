@@ -97,3 +97,15 @@ def feng(req):
         return render(req,'feng.html')
     if req.method=='POST':
         return HttpResponse('成功')
+
+def base(req):
+    return render(req,'base.html')
+
+def get_base(req):
+    return render(req,'get_base.html')
+
+def diy(req):
+
+    s1='miya'
+    l1=[11,23,3,54,5]
+    return render(req,'tags.html',{'s1':s1,'l1':l1})
