@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDataSourceStorage">
+    <option name="dataSources">
+      <list>
+        <State>
+          <option name="id" value="99aaddcd-7106-4145-9189-82cb554f2b98" />
+          <option name="name" value="db" />
+          <option name="urls">
+            <array>
+              <option value="file://$PROJECT_DIR$/orm_stu/db.sqlite3" />
+            </array>
+          </option>
+        </State>
+        <State>
+          <option name="id" value="6f767c42-2417-467d-a1e8-117cb4b635b7" />
+          <option name="name" value="db [2]" />
+          <option name="urls">
+            <array>
+              <option value="file://$PROJECT_DIR$/orm_stu/db.sqlite3" />
+            </array>
+          </option>
+        </State>
+      </list>
+    </option>
+  </component>
+</project>
