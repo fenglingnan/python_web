@@ -13,6 +13,10 @@ class UserInfo(models.Model):
     name=models.CharField(max_length=16)
     age=models.IntegerField()
     current_data=models.DateField()
+    # def __str__(self):
+    #     return self.name
+
+
 class run(models.Model):
 
     id=models.AutoField(primary_key=True)
