@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from app01 import models
 from django.views import View
-from django.http import HttpResponse
+from django.http import HttpResponse,JsonResponse
+from orm_stu import settings
+import os
 import json
 
 # Create your views here.
@@ -106,5 +108,30 @@ class LoginView(View):
         return render(req,'login.html')
 
 def test(req):
-    resp = {'errorcode': 100, 'detail': 'Get success'}
-    return HttpResponse(json.dumps(resp), content_type="application/json")
+    # resp = {'errorcode': 100, 'detail': 'Get success'}
+    resp=[1,2,3]
+    # return HttpResponse(json.dumps(resp), content_type="application/json")
+    # return HttpResponse(json.dumps(resp),content_type='application/x-www-form-urlencoded')
+    return JsonResponse(resp,safe=False)#是数组需要加safe=false
+
+def load(req):
+
+    if(req.method=='GET'):
+
+        return render(req,'upload.html')
+
+    else:
+
+        # print(req.POST)
+        print(req.FILES)
+        files = req.FILES.get('head')
+        path=os.path.join(settings.BASE_DIR,'upload',files.name)
+
+        print(files)
+        print(files.name)
+        with open(path,'wb') as f:
+            for i in files:
+                f.write(i)
+
+        # f=open('xx','rb')
+        return HttpResponse('ok')

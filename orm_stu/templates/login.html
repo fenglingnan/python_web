@@ -11,7 +11,8 @@
     <script>
          function test() {
              $.ajax({
-                 url:'/test',
+                 type:'POST',
+                 url:'/test/',
                  success:function (data) {
                      console.log(data)
                  }

@@ -20,5 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/',views.index),
     path('login/',views.LoginView.as_view(),name='login'),
-    path('test/',views.test)
+    path('test/',views.test),
+    path('upload/',views.load)
 ]
