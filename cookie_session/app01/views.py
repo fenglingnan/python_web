@@ -16,7 +16,7 @@ def wraper(f):
 def index(req):
 
     ret=HttpResponse('ok')
-    ret.set_cookie('k1',1)
+    ret.set_cookie('k1',1)#header里面会带set-cookie，设置客户端cookie，之后请求会携带（同域）
     return ret
 
 def home(req):
