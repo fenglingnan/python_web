@@ -21,6 +21,15 @@
             </array>
           </option>
         </State>
+        <State>
+          <option name="id" value="8bb00038-6c64-4695-88d4-42626207d9de" />
+          <option name="name" value="db [3]" />
+          <option name="urls">
+            <array>
+              <option value="file://$PROJECT_DIR$/cookie_session/db.sqlite3" />
+            </array>
+          </option>
+        </State>
       </list>
     </option>
   </component>
