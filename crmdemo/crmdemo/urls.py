@@ -1,4 +1,4 @@
-"""cookie_session URL Configuration
+"""crmdemo URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app01 import views
+from sales import views
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index/',views.index),
-    path('home/',views.home),
-    path('aa/',views.func2)
+    path('login/',views.login,name='login'),
+    path('register/',views.register,name='register')
 ]

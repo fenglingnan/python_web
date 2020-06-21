@@ -40,3 +40,8 @@ def home(req):
         return HttpResponse('get out')
 
 
+def func2(req):
+
+    return HttpResponse('ok')
+
+
