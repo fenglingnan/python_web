@@ -1,4 +1,0 @@
-http协议可控制connection，来保持会话是否保持/keep-alive
-http协议
-无状态
-无连接
